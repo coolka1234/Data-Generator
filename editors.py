@@ -14,7 +14,7 @@ def generate_editors(how_many):
     load_set('user')
     for _ in range(how_many):
         f_key=fake.random_int(1, 1000)
-        while f_key not in user_fk_keys_set:
+        while f_key in user_fk_keys_set:
             f_key=fake.random_int(1, 1000)
         add_editor(f_key)
         user_fk_keys_set.add(f_key)

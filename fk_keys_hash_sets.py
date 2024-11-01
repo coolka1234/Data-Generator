@@ -1,5 +1,6 @@
 import os
 user_fk_keys_set=set()
+vehicles_numbers_set=set()
 names=['user', 'editor']
 def save_set(name):
     with open(f'sets/fk_keys_hash_sets_{name}.txt', 'w') as file:

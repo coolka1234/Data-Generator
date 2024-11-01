@@ -2,6 +2,8 @@ from connect_to_db import execute_query, engine, metadata
 from sqlalchemy import Table, insert
 from faker import Faker
 import sys
+import random
+from datetime import timedelta, date
 from fk_keys_hash_sets import load_set, inspector_fk_keys_set, save_set, passenger_fk_keys_set
 fake = Faker('pl_PL')
 fines_table = Table('fines', metadata, autoload_with=engine)
@@ -17,10 +19,12 @@ def generate_fines(how_many):
         f_key_passanger=fake.random_int(1, 100)
         while f_key_passanger in passenger_fk_keys_set:
             f_key_passanger=fake.random_int(1, 100)
-        f_key_inspector=fake.random_int(1, 100)
+        f_key_inspector=fake.random_int(1, 50)
         while f_key_inspector in inspector_fk_keys_set:
-            f_key_inspector=fake.random_int(1, 100)
-        add_fine(f_key_passanger, f_key_inspector, fake.random_int(1, 500), fake.date_time_this_decade(1500, 800), fake.random_int(0, 1), fake.date_time_this_century(0, 700))
+            f_key_inspector=fake.random_int(1, 50)
+        issue_date = fake.date_time_between(date(year=2023, month=1, day=1), date(year=2023, month=12, day=31))
+        deadline = issue_date + timedelta(days=random.randint(1, 365))
+        add_fine(f_key_passanger, f_key_inspector, fake.random_int(1, 500), issue_date, fake.random_int(0, 1), deadline)
 
 if __name__ == '__main__':
     generate_fines(int(sys.argv[1]))

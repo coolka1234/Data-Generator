@@ -26,7 +26,7 @@ def save_set(name):
         elif name=='passenger':
             for item in passenger_fk_keys_set:
                 file.write("%s\n" % item)
-        elif name=='path':
+        elif name=='paths':
             for item in path_fk_keys_set:
                 file.write("%s\n" % item)
         elif name=='line_numbers':

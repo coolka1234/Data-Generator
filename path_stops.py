@@ -21,8 +21,8 @@ def generate_path_stops(how_many, num_of_paths, num_of_lines):
                 path_stops_fk_keys_set.add(f'{id_path}-{id_stop}')
                 add_path_stops(id_path, id_stop, path_minute)
                 break
+    save_set('path_stops')
 
 
 if __name__ == '__main__':
     generate_path_stops(int(sys.argv[1]))
-    save_set('path_stops')

@@ -10,6 +10,10 @@ def add_stop(name, type, longitude, latitude, seating_available, shelter):
     execute_query(insert_stmt_inspection)
 
 def generate_stops(how_many):
+    set_ad=set()
+    address=fake.street_address()
+    while address in set_ad:
+        address=fake.street_address()+fake.random_element(elements=('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'))
     for _ in range(how_many):
         add_stop(fake.street_address(), fake.random_element(elements=('bus', 'tram')), fake.longitude(), fake.latitude(), fake.random_element(elements=(True, False)), fake.random_element(elements=(True, False)))
 

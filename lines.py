@@ -15,16 +15,16 @@ def generate_line(how_many, num_of_paths):
     load_set('line_numbers')
     for _ in range(how_many):
         f_key=fake.random_int(1, num_of_paths)
-        number=fake.random_int(1, 50)
+        number=fake.random_int(1, 10000)
         while number in line_numbers_set:
-            number=fake.random_int(1, 50)
+            number=fake.random_int(1, 10000)
         while f_key in path_fk_keys_set:
             f_key=fake.random_int(1, num_of_paths)
         add_line(number, f_key, fake.random_int(1, 90))
         path_fk_keys_set.add(f_key)
         line_numbers_set.add(number)
+    save_set('paths')
+    save_set('line_numbers')
 
 if __name__ == '__main__':
     generate_line(int(sys.argv[1]))
-    save_set('paths')
-    save_set('line_numbers')

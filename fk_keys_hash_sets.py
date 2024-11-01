@@ -2,7 +2,9 @@ import os
 user_fk_keys_set=set()
 vehicles_numbers_set=set()
 licenses_fk_keys_set=set()
-names=['user', 'editor', 'licenses', 'vehicles']
+inspector_fk_keys_set=set()
+passenger_fk_keys_set=set()
+names=['user', 'editor', 'licenses', 'vehicles', 'inspector', 'passenger']
 def save_set(name):
     with open(f'sets/fk_keys_hash_sets_{name}.txt', 'w') as file:
         for item in user_fk_keys_set:
@@ -18,3 +20,7 @@ def load_set(name):
                     licenses_fk_keys_set.add(line.strip())
                 elif name=='user':        
                     user_fk_keys_set.add(line.strip())
+                elif name=='inspector':
+                    inspector_fk_keys_set.add(line.strip())
+                elif name=='passenger':
+                    passenger_fk_keys_set.add(line.strip())

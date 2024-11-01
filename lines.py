@@ -3,6 +3,7 @@ from sqlalchemy import Table, insert
 from faker import Faker
 import sys
 from fk_keys_hash_sets import load_set, save_set, path_fk_keys_set, line_numbers_set
+from numbers_info import num_of_paths
 fake = Faker('pl_PL')
 lines_table = Table('lines', metadata, autoload_with=engine)
 
@@ -14,13 +15,13 @@ def generate_line(how_many):
     load_set('paths')
     load_set('line_numbers')
     for _ in range(how_many):
-        f_key=fake.random_int(1, 100)
+        f_key=fake.random_int(1, num_of_paths)
         number=fake.random_int(1, 50)
         while number in line_numbers_set:
             number=fake.random_int(1, 50)
         while f_key in path_fk_keys_set:
-            f_key=fake.random_int(1, 100)
-        add_line(fake.random_int(1, 50), f_key, fake.random_int(1, 90))
+            f_key=fake.random_int(1, num_of_paths)
+        add_line(number, f_key, fake.random_int(1, 90))
         path_fk_keys_set.add(f_key)
         line_numbers_set.add(number)
 

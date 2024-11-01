@@ -3,6 +3,7 @@ from sqlalchemy import Table, insert
 from faker import Faker
 import sys
 from fk_keys_hash_sets import load_set, user_fk_keys_set, save_set, licenses_fk_keys_set
+from numbers_info import num_of_licenses
 fake = Faker('pl_PL')
 drivers_table = Table('drivers', metadata, autoload_with=engine)
 
@@ -17,9 +18,9 @@ def generate_drivers(how_many):
         f_key=fake.random_int(1, 1000)
         while f_key in user_fk_keys_set:
             f_key=fake.random_int(1, 1000)
-        f_key_license=fake.random_int(1, 100)
+        f_key_license=fake.random_int(1, num_of_licenses)
         while f_key_license in licenses_fk_keys_set:
-            f_key_license=fake.random_int(1, 100)
+            f_key_license=fake.random_int(1, num_of_licenses)
         add_driver(f_key_license,f_key)
         user_fk_keys_set.add(f_key)
         licenses_fk_keys_set.add(f_key_license)

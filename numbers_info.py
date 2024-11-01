@@ -18,11 +18,12 @@ num_of_ticket_inspectors=0
 num_of_tickets=0
 num_of_vehicles=0
 num_of_passengers=0
+num_of_ticket_types=0
 
 
 def json_nums():
     with open('numbers.json', 'w') as file:
-        json.dump({'app_users': num_of_app_users, 'drivers': num_of_drivers, 'licenses': num_of_licenses, 'editors': num_of_editors, 'fines': num_of_fines, 'inspections': num_of_inspections, 'lines': num_of_lines, 'path_stops': num_of_path_stops, 'paths': num_of_paths, 'purchases': num_of_purchases, 'rides': num_of_rides, 'stops': num_of_stops, 'technical_issues': num_of_technical_issues, 'ticket_inspectors': num_of_ticket_inspectors, 'tickets': num_of_tickets, 'vehicles': num_of_vehicles}, file)
+        json.dump({'app_users': num_of_app_users, 'passengers': num_of_passengers,'drivers': num_of_drivers, 'licenses': num_of_licenses, 'editors': num_of_editors, 'fines': num_of_fines, 'inspections': num_of_inspections, 'lines': num_of_lines, 'path_stops': num_of_path_stops, 'paths': num_of_paths, 'purchases': num_of_purchases, 'rides': num_of_rides, 'stops': num_of_stops, 'technical_issues': num_of_technical_issues, 'ticket_inspectors': num_of_ticket_inspectors, 'tickets': num_of_tickets, 'vehicles': num_of_vehicles, 'ticket_types': num_of_ticket_types}, file)
 
 def load_nums():
     with open('numbers.json', 'r') as file:
@@ -43,6 +44,8 @@ def load_nums():
         global num_of_ticket_inspectors
         global num_of_tickets
         global num_of_vehicles
+        global num_of_ticket_types
+        global num_of_passengers
         num_of_app_users=data['app_users']
         num_of_drivers=data['drivers']
         num_of_licenses=data['licenses']
@@ -59,3 +62,5 @@ def load_nums():
         num_of_ticket_inspectors=data['ticket_inspectors']
         num_of_tickets=data['tickets']
         num_of_vehicles=data['vehicles']
+        num_of_ticket_types=data['ticket_types']
+        num_of_passengers=data['passengers']

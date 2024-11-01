@@ -17,6 +17,7 @@ num_of_technical_issues=0
 num_of_ticket_inspectors=0
 num_of_tickets=0
 num_of_vehicles=0
+num_of_passengers=0
 
 
 def json_nums():

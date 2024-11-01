@@ -11,7 +11,7 @@ def add_vehicle(vehicle_number, last_service_date, production_date, capacity, ty
     insert_stmt_vehicle = vehicles_table.insert().values(vehicle_number=vehicle_number, last_technical_inspection=last_service_date, production_date=production_date, capacity=capacity, type=type, status=status, air_conditioning=air_conditioning)
     execute_query(insert_stmt_vehicle)
 
-def generate_purchases(how_many):
+def generate_vehicles(how_many):
     load_set('vehicles')
     for _ in range(how_many):
         vehicle_number=fake.random_int(1000, 9999)
@@ -21,6 +21,6 @@ def generate_purchases(how_many):
         vehicles_numbers_set.add(vehicle_number)
 
 if __name__ == '__main__':
-    generate_purchases(int(sys.argv[1]))
+    generate_vehicles(int(sys.argv[1]))
     save_set('vehicles')
 

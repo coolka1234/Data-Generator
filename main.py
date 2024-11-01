@@ -8,16 +8,19 @@ from passengers import generate_passengers
 from purchases import generate_purchases
 from stops import generate_stops
 from ticket_inspectors import generate_ticket_inspectors
+from ticket_types import load_ticket_types
 from tickets import generate_tickets
 from vehicles import generate_vehicles
 from fines import generate_fines
 from rides import generate_ride
 from paths import generate_paths
 from lines import generate_line
-from stops import generate_stops
 from path_stops import generate_path_stops
+from inspections import generate_inspections
+from technical_issue import generate_ti
 
 def main():
+    load_ticket_types()
     print('How many users do you want to generate?')
     while True:
         try:
@@ -131,7 +134,7 @@ def main():
     while True:
         print('How many paths do you want to generate?')
         try:
-            paths = int(sys.argv[14])
+            paths = int(sys.argv[12])
             generate_paths(paths)
             num_of_paths = paths
             break
@@ -151,22 +154,13 @@ def main():
     while True:
         print('How many rides do you want to generate?')
         try:
-            rides = int(sys.argv[12])
+            rides = int(sys.argv[14])
             generate_ride(rides)
             num_of_rides = rides
             break
         except IndexError or ValueError:
             print('You must provide a number of rides to generate')
             sys.exit(1)
-    while True:
-        print('How many stops do you want to generate?')
-        try:
-            stops = int(sys.argv[7])
-            num_of_stops = stops
-            generate_stops(stops)
-            break
-        except IndexError or ValueError:
-            print('You must provide a number of stops to generate')
     while True:
         print('How many path stops do you want to generate?')
         try:
@@ -177,4 +171,26 @@ def main():
         except IndexError or ValueError:
             print('You must provide a number of path stops to generate')
             sys.exit(1)
+    while True:
+        print('How many inspections do you want to generate?')
+        try:
+            inspections = int(sys.argv[16])
+            generate_inspections(inspections)
+            num_of_inspections = inspections
+            break
+        except IndexError or ValueError:
+            print('You must provide a number of inspections to generate')
+            sys.exit(1)
+    while True:
+        print('How many technical issues do you want to generate?')
+        try:
+            ti = int(sys.argv[17])
+            generate_ti(ti)
+            num_of_ti = ti
+            break
+        except IndexError or ValueError:
+            print('You must provide a number of technical issues to generate')
+            sys.exit(1)
+    json_nums()
+    
 

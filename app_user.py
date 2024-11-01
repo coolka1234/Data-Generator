@@ -13,7 +13,7 @@ def add_user(login, password, email, phone_number, name, surname):
 def generate_users(how_many):
     for _ in range(how_many):
         random.seed()
-        random_number = random.randint(0, 1000)
+        random_number = random.randint(0, 10000) # can be improved
         email=fake.email()
         email=email.split('@')[0]+str(random_number)+'@'+email.split('@')[1]
         add_user(str(fake.user_name()+str(random_number)), fake.password(), email, fake.phone_number(), fake.first_name(), fake.last_name())

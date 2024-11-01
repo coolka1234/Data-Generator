@@ -9,8 +9,30 @@ path_fk_keys_set=set()
 names=['users', 'editors', 'licenses', 'vehicles', 'inspectors', 'passengers', 'paths', 'line_numbers']
 def save_set(name):
     with open(f'sets/fk_keys_hash_sets_{name}.txt', 'w') as file:
-        for item in user_fk_keys_set:
-            file.write("%s\n" % item)
+        if name=='vehicles':
+            for item in vehicles_numbers_set:
+                file.write("%s\n" % item)
+        elif name=='licenses':
+            for item in licenses_fk_keys_set:
+                file.write("%s\n" % item)
+        elif name=='user':
+            for item in user_fk_keys_set:
+                file.write("%s\n" % item)
+        elif name=='inspector':
+            for item in inspector_fk_keys_set:
+                file.write("%s\n" % item)
+        elif name=='passenger':
+            for item in passenger_fk_keys_set:
+                file.write("%s\n" % item)
+        elif name=='path':
+            for item in path_fk_keys_set:
+                file.write("%s\n" % item)
+        elif name=='line_numbers':
+            for item in line_numbers_set:
+                file.write("%s\n" % item)
+        elif name=='users':
+            for item in user_fk_keys_set:
+                file.write("%s\n" % item)
 
 def load_set(name):
     if os.path.exists(f'sets/fk_keys_hash_sets_{name}.txt'):

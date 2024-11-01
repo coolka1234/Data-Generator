@@ -3,7 +3,6 @@ from sqlalchemy import Table, insert
 from faker import Faker
 import sys
 from fk_keys_hash_sets import load_set, save_set, path_fk_keys_set, line_numbers_set
-from numbers_info import num_of_paths
 fake = Faker('pl_PL')
 lines_table = Table('lines', metadata, autoload_with=engine)
 
@@ -11,7 +10,7 @@ def add_line(number, fk_main_path, avg_frequency):
     insert_stmt_line = lines_table.insert().values(number=number, fk_main_path=fk_main_path, avg_frequency=avg_frequency)
     execute_query(insert_stmt_line)
 
-def generate_line(how_many):
+def generate_line(how_many, num_of_paths):
     load_set('paths')
     load_set('line_numbers')
     for _ in range(how_many):

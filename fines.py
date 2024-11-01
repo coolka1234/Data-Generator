@@ -5,7 +5,6 @@ import sys
 import random
 from datetime import timedelta, date
 from fk_keys_hash_sets import load_set, inspector_fk_keys_set, save_set, passenger_fk_keys_set
-from numbers_info import num_of_passengers, num_of_ticket_inspectors
 fake = Faker('pl_PL')
 fines_table = Table('fines', metadata, autoload_with=engine)
 
@@ -13,7 +12,7 @@ def add_fine(fk_passanger, fk_inspector, amount, issue_date, status, deadline):
     insert_stmt_ed = fines_table.insert().values(fk_passenger=fk_passanger, fk_inspector=fk_inspector, amount=amount, issue_date=issue_date, status=status, deadline=deadline)
     execute_query(insert_stmt_ed)
 
-def generate_fines(how_many):
+def generate_fines(how_many, num_of_passengers, num_of_ticket_inspectors):
     load_set('passangers')
     load_set('inspectors')
     for _ in range(how_many):

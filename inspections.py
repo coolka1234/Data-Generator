@@ -9,9 +9,9 @@ def add_inspection(fk_ride, fk_inspector, date):
     insert_stmt_inspection = inspections_table.insert().values(fk_ride=fk_ride, fk_inspector=fk_inspector, date=date)
     execute_query(insert_stmt_inspection)
 
-def generate_inspections(how_many):
+def generate_inspections(how_many, num_of_rides, num_of_ticket_inspectors):
     for _ in range(how_many):
-        add_inspection(fake.random_int(1, 70), fake.random_int(1, 50), fake.date_time_this_year())
+        add_inspection(fake.random_int(1, num_of_rides), fake.random_int(1, num_of_ticket_inspectors), fake.date_time_this_year())
 
 if __name__ == '__main__':
     generate_inspections(int(sys.argv[1]))

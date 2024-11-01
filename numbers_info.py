@@ -28,24 +28,24 @@ def json_nums():
 def load_nums():
     with open('numbers.json', 'r') as file:
         data=json.load(file)
-        global num_of_app_users
-        global num_of_drivers
-        global num_of_licenses
-        global num_of_editors
-        global num_of_fines
-        global num_of_inspections
-        global num_of_lines
-        global num_of_path_stops
-        global num_of_paths
-        global num_of_purchases
-        global num_of_rides
-        global num_of_stops
-        global num_of_technical_issues
-        global num_of_ticket_inspectors
-        global num_of_tickets
-        global num_of_vehicles
-        global num_of_ticket_types
-        global num_of_passengers
+        # global num_of_app_users
+        # global num_of_drivers
+        # global num_of_licenses
+        # global num_of_editors
+        # global num_of_fines
+        # global num_of_inspections
+        # global num_of_lines
+        # global num_of_path_stops
+        # global num_of_paths
+        # global num_of_purchases
+        # global num_of_rides
+        # global num_of_stops
+        # global num_of_technical_issues
+        # global num_of_ticket_inspectors
+        # global num_of_tickets
+        # global num_of_vehicles
+        # global num_of_ticket_types
+        # global num_of_passengers
         num_of_app_users=data['app_users']
         num_of_drivers=data['drivers']
         num_of_licenses=data['licenses']

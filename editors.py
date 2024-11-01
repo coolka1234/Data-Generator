@@ -3,7 +3,6 @@ from sqlalchemy import Table, insert
 from faker import Faker
 import sys
 from fk_keys_hash_sets import load_set, user_fk_keys_set, save_set
-from numbers_info import num_of_app_users
 fake = Faker('pl_PL')
 editors_table = Table('editors', metadata, autoload_with=engine)
 
@@ -11,7 +10,7 @@ def add_editor(foreign_key_user):
     insert_stmt_ed = editors_table.insert().values(fk_user=foreign_key_user)
     execute_query(insert_stmt_ed)
 
-def generate_editors(how_many):
+def generate_editors(how_many, num_of_app_users):
     load_set('user')
     for _ in range(how_many):
         f_key=fake.random_int(1, num_of_app_users)

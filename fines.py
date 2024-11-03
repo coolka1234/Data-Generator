@@ -23,7 +23,7 @@ def generate_fines(how_many, num_of_passengers, num_of_ticket_inspectors):
         while f_key_inspector in inspector_fk_keys_set:
             f_key_inspector=fake.random_int(1, num_of_ticket_inspectors)
         issue_date = fake.date_time_between(date(year=2019, month=1, day=1), date(year=2023, month=12, day=31))
-        deadline = issue_date + timedelta(days=random.randint(1, 90))
+        deadline = issue_date + timedelta(days=random.randint(1, 600))
         status=0
         if deadline < datetime.today():
             status=1

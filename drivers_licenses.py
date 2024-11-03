@@ -11,9 +11,10 @@ def add_driver_license(issue_date, expiration_date):
     execute_query(insert_stmt_dl)
 
 def generate_dl(how_many):
-    expiration_date = fake.date_of_birth(None, 8, 15)+timedelta(days=365*10)
     for _ in range(how_many):
-        add_driver_license(fake.date_of_birth(None, 8, 15), fake.date_of_birth(None, 0, 5))
+        issue_date = fake.date_of_birth(None, 8, 15)
+        expiration_date = issue_date+timedelta(days=365*25)
+        add_driver_license(issue_date, expiration_date)
 
 if __name__ == '__main__':
     generate_dl(int(sys.argv[1]))

@@ -1,18 +1,15 @@
-from connect_to_db import  engine 
-from numbers_info import num_of_ticket_types
 from sqlalchemy import text
-
+from numbers_info import num_of_ticket_types
 
 num_of_ticket_types = 0
-def load_ticket_types():
-    sql_file_path = "ticket_types.sql"
-    with open(sql_file_path, 'r') as file:
-        sql_commands = file.read()
-        num_of_ticket_types = sql_commands.count('INSERT INTO')
-    command=sql_commands.strip().split(';')
 
-    with engine.connect() as connection:
-        for command in command:
+
+def load_ticket_types():
+    from connect_to_db import execute_query
+
+    sql_file_path = "ticket_types.sql"
+    with open(sql_file_path, "r", encoding="utf-8") as file:
+        query = file.read()
+        for command in query.split(";"):
             if command.strip():
-                connection.execute(text(command))
-        connection.commit()
+                execute_query(text(command))

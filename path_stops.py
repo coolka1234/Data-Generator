@@ -10,12 +10,12 @@ def add_path_stops(id_path, id_stop, path_minute):
     insert_stmt_ps = path_stops_table.insert().values(id_path=id_path, id_stop=id_stop, path_minute=path_minute)
     execute_query(insert_stmt_ps)
 
-def generate_path_stops(how_many, num_of_paths, num_of_lines):
+def generate_path_stops(how_many, num_of_paths, num_of_stops):
     load_set('path_stops')
     for _ in range(how_many):
         while True:
             id_path = fake.random_int(1, num_of_paths)
-            id_stop = fake.random_int(1, num_of_lines)
+            id_stop = fake.random_int(1, num_of_stops)
             path_minute = fake.random_int(1, 1000)
             if f'{id_path}-{id_stop}' not in path_stops_fk_keys_set:
                 path_stops_fk_keys_set.add(f'{id_path}-{id_stop}')

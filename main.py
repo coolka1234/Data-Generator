@@ -185,7 +185,7 @@ def main():
         print('How many path stops do you want to generate?')
         try:
             path_stops = int(input())
-            generate_path_stops(path_stops, num_of_paths=num_of_paths, num_of_lines=num_of_lines)
+            generate_path_stops(path_stops, num_of_paths=num_of_paths, num_of_stops=num_of_stops)
             num_of_path_stops = path_stops
             break
         except IndexError or ValueError:

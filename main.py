@@ -9,7 +9,6 @@ from purchases import generate_purchases
 from stops import generate_stops
 from ticket_inspectors import generate_ticket_inspectors
 from ticket_types import load_ticket_types, num_of_ticket_types
-import ticket_types
 from tickets import generate_tickets
 from vehicles import generate_vehicles
 from fines import generate_fines

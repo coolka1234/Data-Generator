@@ -12,7 +12,7 @@ def add_driver_license(issue_date, expiration_date):
 
 def generate_dl(how_many):
     for _ in range(how_many):
-        issue_date = fake.date_of_birth(None, 8, 15)
+        issue_date = fake.date_of_birth(None, 8, 90)
         expiration_date = issue_date+timedelta(days=365*25)
         add_driver_license(issue_date, expiration_date)
 

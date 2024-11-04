@@ -7,7 +7,7 @@ from sqlalchemy import text
 
 load_dotenv()
 # enter your database connection here "postgresql+psycopg2://[USER]:[PASSWORD]@localhost:5432/[DATABASE NAME]"
-URL = f"postgresql+psycopg2://postgres:postgres@localhost:5432/DataBases_P"
+URL = f"postgresql+psycopg2://postgres:postgres@localhost:5432/postgres"
 engine = create_engine(URL, echo=True)
 connection = engine.connect()
 metadata = MetaData()

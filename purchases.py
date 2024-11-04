@@ -1,5 +1,5 @@
 from connect_to_db import execute_query, engine, metadata
-from sqlalchemy import Table, insert
+from sqlalchemy import Table 
 from faker import Faker
 import sys
 fake = Faker('pl_PL')

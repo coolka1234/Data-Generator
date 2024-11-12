@@ -11,6 +11,7 @@ def add_purchase(date, amount):
 
 def generate_purchases(how_many):
     for _ in range(how_many):
+        #add december!
         add_purchase(fake.date_time_this_year(), abs(fake.pyfloat(2, 2))+1.0)
 
 if __name__ == '__main__':
